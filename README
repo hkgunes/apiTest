@@ -1,0 +1,8 @@
+1. proje java dilinde rest assured, junit kullanılarak oluşturulmuştur.
+2. source src\test\java\ petstore 'un altında bulunmaktadır.
+-> CreatePet :
+-> DeletePet :
+-> ReadPet :
+-> UpdatePet :
+-> FindByStatus :
+-> UploadImage :

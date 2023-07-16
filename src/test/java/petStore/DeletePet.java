@@ -18,13 +18,22 @@ public class DeletePet extends Base {
                 .then()
                 .statusCode(200);
     }
-
     @Test
-    public void negativeScenario_invalidId() {
-        int invalidPetId = 100;
+    public void negativeScenario_1() {
 
         given()
-                .pathParam("petId", invalidPetId)
+                .pathParam("petId", "a<asas")
+                .when()
+                .delete("/pet/{petId}")
+                .then()
+                .statusCode(404)
+                .body("message", equalTo("Invalid ID supplied "));
+    }
+    @Test
+    public void negativeScenario_2() {
+
+        given()
+                .pathParam("petId", 12121212)
                 .when()
                 .delete("/pet/{petId}")
                 .then()

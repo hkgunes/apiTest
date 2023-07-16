@@ -47,8 +47,8 @@ public class CreatePet extends Base {
     }
 
     @Test
-    public void negativeScenarioInvalidStatus() {
-        String requestBody = "{ \"id\": " + PET_ID + ", \"naame\": \"doggie\", \"status\": \"hatali\" }";
+    public void negativeScenarios() {
+        String requestBody = "{ \"id\": " + "asasas"+ ", \"naame\": \"doggie\", \"status\": \"hatali\" }";
 
         given()
                 .contentType(ContentType.JSON)
@@ -57,7 +57,7 @@ public class CreatePet extends Base {
                 .post("/pet")
                 .then()
                 .statusCode(405)
-                .body("message", equalTo("Invalid status value"));
+                .body("message", equalTo("Invalid Input"));
     }
 
 }

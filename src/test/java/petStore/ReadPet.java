@@ -23,11 +23,21 @@ public class ReadPet extends Base {
     }
 
     @Test
-    public void negativeScenarioinvalid() {
-        String  invalidPetId = "10121qesdz0";
+    public void negativeScenario_1() {
 
         given()
-                .pathParam("petId", invalidPetId)
+                .pathParam("petId", "invalidId")
+                .when()
+                .get("/pet/{petId}")
+                .then()
+                .statusCode(400)
+                .body("message", equalTo( "Invalid ID supplied"));
+    }
+    @Test
+    public void negativeScenario_2() {
+
+        given()
+                .pathParam("petId", 12112)
                 .when()
                 .get("/pet/{petId}")
                 .then()
